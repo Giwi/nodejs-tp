@@ -19,7 +19,7 @@ Le sujet de ce TP est de se créer une application de gestion  de bières. Notre
 
 ## Sommaire
 
-- [TP 1](./tp1/README.md) : Bonnes pratiques
-- [TP 2](./tp2/README.md) : Découvrir NodeJS
-- [TP 3](./tp3/README.md) : Structurer
-- [TP 4](./tp4/README.md) : Modulariser
+- [TP 1 : Bonnes pratiques](./tp1)
+- [TP 2 : Découvrir NodeJS](./tp2)
+- [TP 3 : Structurer](./tp3)
+- [TP 4 : Modulariser](./tp4)
