@@ -1,7 +1,7 @@
 # nodejs-tp
 Tp NodeJS
 
-## Prérequis : NodeJS et NPM
+## Prérequis : NodeJS et NPM
 
 - Windows et Mac : [https://nodejs.org/en/download/current/](https://nodejs.org/en/download/current/)
 - Ubuntu : [https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
@@ -19,4 +19,7 @@ Le sujet de ce TP est de se créer une application de gestion  de bières. Notre
 
 ## Sommaire
 
-- [TP 1](./tp1/README.md)
+- [TP 1](./tp1/README.md) : Bonnes pratiques
+- [TP 2](./tp2/README.md) : Découvrir NodeJS
+- [TP 3](./tp3/README.md) : Structurer
+- [TP 4](./tp4/README.md) : Modulariser
