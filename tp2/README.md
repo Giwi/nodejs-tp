@@ -47,9 +47,9 @@ initialise une liste de bières :
         }
     ];
 
-Créer un constructeur pour l'object `Beers` qui ne fait rien pour le moment.
+Créer un constructeur pour l'objet `Beers` qui ne fait rien pour le moment.
 
-Associer au prototype de l'object `Beers` un instance de `MemoryBeers`.
+Associer au prototype de l'objet `Beers` un instance de `MemoryBeers`.
 
 Ajouter la méthode `toString()` dans le prototype de la classe `Beer` retournant
 le nom en majuscules, le degré d'alcool et la description.
@@ -57,7 +57,7 @@ le nom en majuscules, le degré d'alcool et la description.
 ## Lecture des bières
 
 Nous allons utiliser la fonction `require` de NodeJS qui est indépendante
-du language JavaScript pour charger une liste de bières présente dans le fichier
+du langage JavaScript pour charger une liste de bières présente dans le fichier
 fourni : `beers.json`
 
 En haut du fichier, ajouter
@@ -73,7 +73,7 @@ callback et l'appelant en lui passant en paramètre la liste des bières.
 Ajouter une méthode `print` dans la classe `Beers` qui afficher toutes les bières
 en utilisant `console.log(...)`
 
-Instancier un object `Beers` et invoquer sa méthode `print`.
+Instancier un objet `Beers` et invoquer sa méthode `print`.
 
 Exécuter le script :
 
@@ -91,3 +91,7 @@ Itérer avec `forEach` sur la liste des bières pour instancier chaque objet
 
 Notez le contexte `this` dans la fonction passée en paramètre du forEach faisant
 référence à `this.beers` passé en paramètre.
+
+## Ensuite
+
+Allons un peu plus loin avec NodeJS dans le [TP 3](../tp3/)
