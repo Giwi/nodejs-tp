@@ -49,18 +49,24 @@ Cette commande doit fonctionner :
 
     $ node beers.js --help
 
-        Usage: beers [options]
+        Usage: beers [options] [command]
+
+
+        Commands:
+
+          list [options]  List beers
 
         Options:
 
           -h, --help     output usage information
           -V, --version  output the version number
-          -l, --list     List beers
+          -c, --color    Colored display
 
-- Modifier `beers.js` pour que la commande `$ node beers.js -l` affiche
+
+- Modifier `beers.js` pour que la commande `$ node beers.js list` affiche
 la liste des bières.
 - Ajouter une option *colors* pour afficher ou nom la liste en couleur
-: `$ node beers.js -l -c`
+: `$ node beers.js list -c`
 
 Ajouter le *shebang* à `beers.js` en tête de fichier :
 
@@ -72,7 +78,7 @@ Ajouter le *shebang* à `beers.js` en tête de fichier :
 
 et exécuter :
 
-    $ node beers -l -c
+    $ node beers list -c
 
 Plus besoin de préciser l'extension.
 

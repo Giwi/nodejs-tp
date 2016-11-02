@@ -3,13 +3,14 @@ require('colors');
 var program = require('commander');
 var beersFile = require('./beers.json');
 
-program
-    .version('0.0.1')
-    .option('-l, --list', 'List beers')
-    .option('-c, --color', 'Colored display')
-    .parse(process.argv);
-
-
+/**
+ *
+ * @param id
+ * @param alcohol
+ * @param name
+ * @param description
+ * @constructor
+ */
 function Beer(id, alcohol, name, description) {
     this.id = id;
     this.alcohol = alcohol;
@@ -17,14 +18,23 @@ function Beer(id, alcohol, name, description) {
     this.description = description;
 }
 
-Beer.prototype.toString = function () {
-    if(program.color) {
+/**
+ *
+ * @param color
+ * @returns {string}
+ */
+Beer.prototype.toString = function (color) {
+    if (color) {
         return this.name.toUpperCase().blue + '\t' + this.alcohol.toString().red + '\t' + this.description;
     } else {
         return this.name.toUpperCase() + '\t' + this.alcohol + '\t' + this.description;
     }
 };
 
+/**
+ *
+ * @constructor
+ */
 function MemoryBeer() {
     this.beers = [];
     beersFile.forEach(function (item) {
@@ -35,19 +45,37 @@ function MemoryBeer() {
     }
 }
 
+/**
+ *
+ * @constructor
+ */
 function Beers() {
-    this.print = function () {
+    this.print = function (color) {
         this.get(function (beers) {
             beers.forEach(function (item) {
-                console.log(item.toString());
+                console.log(item.toString(color));
             });
         });
     }
 }
 
+/**
+ *
+ * @type {MemoryBeer}
+ */
 Beers.prototype = new MemoryBeer();
 
 var b = new Beers();
-if (program.list) {
-    b.print();
-}
+
+program
+    .version('0.0.1')
+    .option('-c, --color', 'Colored display');
+
+program.command('list [options]')
+    .description('List beers')
+    .action(function () {
+        var color = program.color || false;
+        b.print(color);
+    });
+
+program.parse(process.argv);

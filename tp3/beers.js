@@ -1,5 +1,12 @@
 var beersFile = require('./beers.json');
-
+/**
+ *
+ * @param id
+ * @param alcohol
+ * @param name
+ * @param description
+ * @constructor
+ */
 function Beer(id, alcohol, name, description) {
     this.id = id;
     this.alcohol = alcohol;
@@ -7,10 +14,18 @@ function Beer(id, alcohol, name, description) {
     this.description = description;
 }
 
+/**
+ *
+ * @returns {string}
+ */
 Beer.prototype.toString = function () {
     return this.name.toUpperCase() + '\t' + this.alcohol + '\t' + this.description;
 };
 
+/**
+ *
+ * @constructor
+ */
 function MemoryBeer() {
     this.beers = [];
     beersFile.forEach(function (item) {
@@ -21,6 +36,10 @@ function MemoryBeer() {
     }
 }
 
+/**
+ *
+ * @constructor
+ */
 function Beers() {
     this.print = function () {
         this.get(function (beers) {
@@ -31,6 +50,10 @@ function Beers() {
     }
 }
 
+/**
+ *
+ * @type {MemoryBeer}
+ */
 Beers.prototype = new MemoryBeer();
 
 var b = new Beers();
