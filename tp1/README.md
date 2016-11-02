@@ -1,90 +1,160 @@
-# TP 1 : Bonnes pratiques Javascript
+# TP 1 : A la découverte de JavaScript
 
-Javascript est un langage orienté Objet mais peut ressembler à de la 
-programmation fonctionnelle. Aborder une application Javascript par une
-méthodologie Objet pure n'est pas forcément une bonne approche.
+JavaScript est un langage qui, historiquement, s'exécute dans un navigateur.
+Cependant, grâce à NodeJS, nous pouvons l'exécuter via la ligne de commande.
 
-Cependant, reproduire les concepts Objet est une bonne mise en pratique 
-de la chaîne prototypale ou des closures.
+commençons par créer un fichier `index.js` :
 
-## Création des classes
+    console.log('Hello Kitty');
 
- Créer un fichier `beers.js`
+Oui, c'est plus sympa que l'éternel *Hello World*.
 
- Créer un constructeur pour l'objet `Beer` qui prend en argument un id, 
- un degré d'alcool, un nom et une description tels que représente la 
- structure suivante :
+Pour l'exécuter :
 
-    {
-        "id": 1,
-        "alcohol": 8.5,
-        "name": "Affligem Tripel",
-        "description": "The king of the abbey beers. It is amber-gold and pours with a deep head and original aroma, delivering a complex, full bodied flavour. Pure enjoyment! Secondary fermentation in the bottle."
+    $ node index.js
+
+## Jouer avec les variables
+
+### Déclaration
+
+Dans le fichier `index.js`, déclarer les variables :
+
+    var b1 = true;
+    var b2 = new Boolean(true);
+    var i1 = 42;
+    var i2 = '42';
+
+### Ccoercition
+
+Tester la coercition :
+
+    console.log('b1, b2 -> ', b1, b2);
+    console.log('b1 == b2 -> ', b1 == b2);
+    console.log('b1 === b2 -> ', b1 === b2);
+    console.log('i1 == i2 -> ', i1 == i2);
+    console.log('i1 === i2 -> ', i1 === i2);
+
+### Tableaux
+
+    var t1 = [];
+    t1[0] = 'a';
+    t1[1] = 'b';
+    t1[3] = 'c';
+    console.log('t1 -> ', t1);
+
+    var t2 = [1, 2, 3, 4];
+    console.log('t2 -> ', t2);
+
+    var t3 = [];
+    t3.push(1);
+    t3.push(2);
+    t3.push(3);
+    t3.push(4);
+    console.log('t3 -> ', t3);
+
+    var t4 = [];
+    t4.push(t1);
+    t4.push(t2);
+    t4.push(t3);
+    t4[6] = [7, 8, 'r', true];
+    console.log('t4 -> ', t4);
+
+## Les structures de contrôle
+
+    if (i1) {
+        console.log('i1=', i1);
     }
 
-Créer un constructeur pour l'objet `MemoryBeers` sans argument mais qui
-initialise une liste de bières : 
+    if (b1) {
+        console.log('b1=', b1);
+    }
 
+    if (!!b1) {
+        console.log('b1=', b1);
+    }
 
-    [
-        {
-            "id": "AffligemTripel",
-            "alcohol": 8.5,
-            "name": "Affligem Tripel",
-            "description": "The king of the abbey beers. It is amber-gold and pours with a deep head and original aroma, delivering a complex, full bodied flavour. Pure enjoyment! Secondary fermentation in the bottle."
-        },
-        {
-            "id": "TrappistesRochefort8",
-            "alcohol": 9.2,
-            "name": "Rochefort 8",
-            "description": "A dry but rich flavoured beer with complex fruity and spicy flavours."
-        },
-        {
-            "id": "ChimayRed",
-            "alcohol": 7,
-            "name": "Chimay Rouge",
-            "description": "This Trappist beer possesses a beautiful coppery colour that makes it particularly attractive. Topped with a creamy head, it gives off a slight fruity apricot smell from the fermentation. The aroma felt in the mouth is a balance confirming the fruit nuances revealed to the sense of smell. This traditional Belgian beer is best savoured at cellar temperature "
+    var b3;
+    if (b3) {
+        console.log('ouch');
+    } else {
+        console.log('b3=', b3);
+    }
+
+    if (!b3) {
+        console.log('b3=', b3);
+    }
+
+    if (b3 === undefined) {
+        console.log('b3=', b3);
+    }
+
+    for (var i = 0; i < t3.length; i++) {
+        console.log('for : i=', i, 't3[i]=', t3[i]);
+    }
+
+    var i = 0;
+    while (i < t3.length) {
+        console.log('while : i=', i, 't3[i]=', t3[i]);
+        i++;
+    }
+
+    for (var i = 0; i < t3.length; i++) {
+        if (i % 2) {
+            console.log('modulo : i=', i, 't3[i]=', t3[i]);
         }
-    ];
+    }
 
-Créer un constructeur pour l'object `Beers` qui ne fait rien pour le moment.
+    var t5 = [7, 8, 'r', true];
+    for (var i = 0; i < t5.length; i++) {
+        console.log('Switch pour', t5[i]);
+        switch (t5[i]) {
+            case 7:
+                console.log('case 7');
+            case 10:
+                console.log('ne devrait pas s\'afficher');
+            case 'r':
+                console.log('chaîne de caractères');
+                break; // observons son rôle
+            default :
+                console.log('défaut'); // observons son rôle
+        }
+    }
 
-Associer au prototype de l'object `Beers` un instance de `MemoryBeers`.
+Pour aller plus loin :
 
-Ajouter la méthode `toString()` dans le prototype de la classe `Beer` retournant
-le nom en majuscules, le degré d'alcool et la description.
+- iterer avec une double boucle *for* le tableau t4.
+- extraire une sous partie de t2 avec `splice()` (méthode de la classe Array).
+- comparer les comportements des méthodes de la classe Array `unshift()` et `push()`
+sur t3.
+- tester la méthode `concat()` de la classe Array avec t2 et t3.
+- tester les méthodes `join()` et `indexOf()` de la classe Array avec t3.
 
-## Lecture des bières
+## Les fonctions
 
-Nous allons utiliser la fonction `require` de NodeJS qui est indépendante
-du langage Javascript pour charger une liste de bières présente dans le fichier
-fourni : `beers.json`
+Créer une fonction `hello()` qui prend un paramètre et invoquez la :
 
-En haut du fichier, ajouter 
+    function hello(name) {
+        console.log('hello ' + name); // concaténation de chaîne de caractère, au passage
+    }
+    hello('Gilbert');
 
-    var beersFile = require('./beers.json');
+Créez une fonction à 2 arguments :
 
-Puis dans `MemoryBeers`, itérer avec `forEach` sur la liste des bières pour
-instancier chaque objet `Beer`
+    function hello2(name, firstname) {
+        console.log('hello2 ' + firstname + ' ' + name);
+    }
+    hello2('Young', 'Angus');
+    hello2('Slash');
+    hello2('David', 'Lee', 'Roth');
 
-    this.beers = [];
-    beersFile.forEach(function(item) {
-        this.push(new Beer(item.id, item.alcohol, item.name, item.description));
-    }, this.beers);
+Pour aller plus loin :
 
-Notez le contexte `this` dans la fonction passée en pramaètre du forEach faisant
-référence à `this.beers` passé en paramètre.
+Créer une autre fonction `capitalize()` qui prend en paramètre une fonction
+et une chaîne de caractères et qui appelle la méthode `toUppercase()` de
+la classe String sur le second argument et passe le résultat comme argument
+du premier. Invoquez la avec la fonction `hello`.
 
-Ajouter une méthode `get` dans `MemoryBeers` prenant en paramètre une fonction
-callback et l'appelant en lui passant en paramètre la liste des bières.
+## Ensuite
 
-Ajouter une méthode `print` dans la classe `Beers` qui afficher toutes les bières
-en utilisant `console.log(...)`
-
-Instancier un object `Beers` et invoquer sa méthode `print`.
-
-Exécuter le script : 
-
-    $ node beers.js
-
-
+Bon, on a fait le tour des variables, tableaux, fonctions et de la coercition.
+Passons aux choses (à peu près) sérieuses dans le [TP 2](../tp2/)
