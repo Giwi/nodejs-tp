@@ -5,7 +5,7 @@ Tp NodeJS
 
 - Windows et Mac : [https://nodejs.org/en/download/current/](https://nodejs.org/en/download/current/)
 - Ubuntu : [https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
--Un éditeur :
+- Un éditeur :
     - [https://atom.io/](https://atom.io/)
     - [https://code.visualstudio.com](https://code.visualstudio.com)
 
