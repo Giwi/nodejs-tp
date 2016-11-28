@@ -44,16 +44,16 @@ MemoryBeer.prototype.get = function (callback) {
  * @constructor
  */
 function Beers() {
-}
-/**
- *
- */
-Beers.prototype.print = function () {
-    this.get(function (beers) {
-        beers.forEach(function (item) {
-            console.log(item.toString());
+    /**
+     *
+     */
+    this.print = function () {
+        this.get(function (beers) {
+            beers.forEach(function (item) {
+                console.log(item.toString());
+            });
         });
-    });
+    }
 };
 
 /**
@@ -61,6 +61,5 @@ Beers.prototype.print = function () {
  * @type {MemoryBeer}
  */
 Beers.prototype = new MemoryBeer();
-
 var b = new Beers();
 b.print();
