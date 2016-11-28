@@ -17,6 +17,11 @@ function Beer(id, alcohol, name, description) {
     this.name = name;
     this.description = description;
 
+    /**
+     *
+     * @param color
+     * @returns {string}
+     */
     this.toString = function (color) {
         if (color) {
             return this.name.toUpperCase().blue + '\t' + this.alcohol.toString().red + '\t' + this.description;

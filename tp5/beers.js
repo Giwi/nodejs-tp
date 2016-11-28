@@ -16,20 +16,19 @@ function Beer(id, alcohol, name, description) {
     this.alcohol = alcohol;
     this.name = name;
     this.description = description;
-}
-
-/**
- *
- * @param color
- * @returns {string}
- */
-Beer.prototype.toString = function (color) {
-    if (color) {
-        return this.name.toUpperCase().blue + '\t' + this.alcohol.toString().red + '\t' + this.description;
-    } else {
-        return this.name.toUpperCase() + '\t' + this.alcohol + '\t' + this.description;
+    /**
+     *
+     * @param color
+     * @returns {string}
+     */
+    this.toString = function (color) {
+        if (color) {
+            return this.name.toUpperCase().blue + '\t' + this.alcohol.toString().red + '\t' + this.description;
+        } else {
+            return this.name.toUpperCase() + '\t' + this.alcohol + '\t' + this.description;
+        }
     }
-};
+}
 
 /**
  *
@@ -120,12 +119,12 @@ function Beers() {
     this.del = function (id, callback) {
         this.read(function (beers) {
             var newBeers = [];
-            for(var i=0; i < beers.length; i++) {
-                if(beers[i].id !== id) {
+            for (var i = 0; i < beers.length; i++) {
+                if (beers[i].id !== id) {
                     newBeers.push(beers[i]);
                 }
             }
-            if(newBeers.length === beers.length) {
+            if (newBeers.length === beers.length) {
                 console.error(id, 'not found'.red);
             } else {
                 this.write(newBeers, callback);
