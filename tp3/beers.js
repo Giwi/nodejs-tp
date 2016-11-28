@@ -31,24 +31,30 @@ function MemoryBeer() {
     beersFile.forEach(function (item) {
         this.push(new Beer(item.id, item.alcohol, item.name, item.description));
     }, this.beers);
-    this.get = function (callback) {
-        callback(this.beers);
-    }
 }
-
+/**
+ *
+ * @param callback
+ */
+MemoryBeer.prototype.get = function (callback) {
+    callback(this.beers);
+};
 /**
  *
  * @constructor
  */
 function Beers() {
-    this.print = function () {
-        this.get(function (beers) {
-            beers.forEach(function (item) {
-                console.log(item.toString());
-            });
-        });
-    }
 }
+/**
+ *
+ */
+Beers.prototype.print = function () {
+    this.get(function (beers) {
+        beers.forEach(function (item) {
+            console.log(item.toString());
+        });
+    });
+};
 
 /**
  *
