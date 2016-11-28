@@ -29,7 +29,7 @@ function Beer(id, alcohol, name, description) {
             return this.name.toUpperCase() + '\t' + this.alcohol + '\t' + this.description;
         }
     }
-};
+}
 
 /**
  *
