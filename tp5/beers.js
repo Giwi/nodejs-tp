@@ -75,7 +75,6 @@ function FileBeer() {
     this.write = function (beers, callback) {
         fs.writeFile(this.path, JSON.stringify(beers), 'utf-8', function (err) {
             if (!err) {
-                this.beers = beers;
                 callback(beers);
             } else {
                 console.error(err);
