@@ -17,20 +17,21 @@ Revenons sur le chargement du fichier `beers.json` :
 - toujours dans ce constructeur, définir une méthode `this.read = function(callback) {...};` qui utilise `fs.readFile(<path>, <encoding>, <callback>);` pour lire notre fichier json.
 - implémenter la méthode get pour offir la même API que *MemoryBeer*
 
-
-        fs.readFile(this.path, 'utf8', function (err, data) {
-                if (!err) {
-                    var beers = [];
-                    // JSON.parse est natif en JavaScript
-                    JSON.parse(data).forEach(function (item) {
-                        this.push(new Beer(item.id, item.alcohol, item.name, item.description))
-                    }, beers); // Attention au contexte ici
-                    this.beers = beers; // on repose dans un attribut de classe
-                    callback(this.beers);
-                } else {
-                    console.error(err); // affichage d'une erreur au passage
-                }
-        });
+```javascript
+fs.readFile(this.path, 'utf8', function (err, data) {
+        if (!err) {
+            var beers = [];
+            // JSON.parse est natif en JavaScript
+            JSON.parse(data).forEach(function (item) {
+                this.push(new Beer(item.id, item.alcohol, item.name, item.description))
+            }, beers); // Attention au contexte ici
+            this.beers = beers; // on repose dans un attribut de classe
+            callback(this.beers);
+        } else {
+            console.error(err); // affichage d'une erreur au passage
+        }
+});
+```
 
 Pour `fs.readFile(<path>, <encoding>, <callback(err, data)>)`, par convention,
 tous les appels assynchrones de nodeJS (faites de même dans vos devs) on
