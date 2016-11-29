@@ -16,37 +16,43 @@ au besoin. Ceci est typique de NodeJS ou d'ES6.
 
 Par exemple :
 
-    require('colors');
-    function Beer(id, alcohol, name, description) {
-        this.id = id;
-        this.alcohol = alcohol;
-        this.name = name;
-        this.description = description;
+```js
+require('colors');
+function Beer(id, alcohol, name, description) {
+    this.id = id;
+    this.alcohol = alcohol;
+    this.name = name;
+    this.description = description;
 
-        this.toString = function (color) {
-            if (color) {
-                return this.name.toUpperCase().blue + '\t' + this.alcohol.toString().red + '\t' + this.description;
-            } else {
-                return this.name.toUpperCase() + '\t' + this.alcohol + '\t' + this.description;
-            }
-        };
-    }
+    this.toString = function (color) {
+        if (color) {
+            return this.name.toUpperCase().blue + '\t' + this.alcohol.toString().red + '\t' + this.description;
+        } else {
+            return this.name.toUpperCase() + '\t' + this.alcohol + '\t' + this.description;
+        }
+    };
+}
 
-    exports = module.exports = Beer; // On exporte la classe
+exports = module.exports = Beer; // On exporte la classe
+```
 
 Puis dans une autre classe :
 
-    var Beer = require('./beer.js');
+```js
+var Beer = require('./beer.js');
+```
 
 L'extension *.js* est optionnelle.
 
 ## Tests :
 
-    $ node index list -c
-    $ node index add -a 4.5 -n Kronembourg -d "La bière dégueu à pas cher" -i kro
-    $ node index list -c
-    $ node index del -i kro
-    $ node index list -c
+```bash
+$ node index list -c
+$ node index add -a 4.5 -n Kronembourg -d "La bière dégueu à pas cher" -i kro
+$ node index list -c
+$ node index del -i kro
+$ node index list -c
+```
 
 ## Fini
 

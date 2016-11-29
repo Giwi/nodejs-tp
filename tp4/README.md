@@ -51,29 +51,33 @@ opérations d'ajout et de suppression.
 - Réaliser une commande *Add* pour ajouter une bière au tableau puis écrire le tout
 dans le fichier.
 
-    $ node beers --help
+```bash
+$ node beers --help
 
-        Usage: beers [options] [command]
+    Usage: beers [options] [command]
 
 
-        Commands:
+    Commands:
 
-          list [options]  List beers
-          add [options]   Add  beer
+      list [options]  List beers
+      add [options]   Add  beer
 
-        Options:
+    Options:
 
-          -h, --help                       output usage information
-          -V, --version                    output the version number
-          -c, --color                      Colored display
-          -n, --name [name]                Beer's name
-          -a, --alcohol [alcohol]          Beer's alcohol
-          -i, --id [id]                    Beer's id
-          -d, --description [description]  Beer's description
+      -h, --help                       output usage information
+      -V, --version                    output the version number
+      -c, --color                      Colored display
+      -n, --name [name]                Beer's name
+      -a, --alcohol [alcohol]          Beer's alcohol
+      -i, --id [id]                    Beer's id
+      -d, --description [description]  Beer's description
+```
 
 et tester avec :
 
-    $ node beers add -a 4.5 -n Kronembourg -d "La bière dégueu à pas cher" -i kro
+```bash
+$ node beers add -a 4.5 -n Kronembourg -d "La bière dégueu à pas cher" -i kro
+```
 
 ## Pour aller plus loin
 

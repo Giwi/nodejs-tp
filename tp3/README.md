@@ -14,7 +14,9 @@ Commençons par créer un fichier `package.json` pour décrire le projet et y
 gérer nos dépendances. Laissons [NPM](https://www.npmjs.com/) le faire à notre
 place (répondre quand même à ses questions ;) ) :
 
-    $ npm init
+```bash
+$ npm init
+```
 
 ## Ajouter la couleur des logs
 
@@ -23,13 +25,17 @@ habit de lumière. Nous utiliserons la librairie [colors](https://www.npmjs.com/
 
 Laisson le soin à NPM de gérer cette dépendance pour nous :
 
-    $ npm install colors --save
+```bash
+$ npm install colors --save
+```
 
 Le fichier `package.json` a été modifié pour inclure cette dépendance externe.
 
 Dans le fichier `beers.js`, importer cette dépendance avec `require` :
 
-    require('colors');
+```javascript
+require('colors');
+```
 
 Cette librairie étendant la classe *String* inutile de l'affecter à une variable.
 
@@ -42,43 +48,45 @@ La librairie [commander.js](https://www.npmjs.com/package/commander) permet
 de manipuler le script par des paramètres passés à la ligne de commande.
 
 - Installer la librairie.
-- A l'aide de [la documentation](https://github.com/tj/commander.js) utiliser
-commander pour passer des paramètres
+- A l'aide de [la documentation](https://github.com/tj/commander.js) utiliser commander pour passer des paramètres
 
 Cette commande doit fonctionner :
 
-    $ node beers.js --help
+```bash
+$ node beers.js --help
 
-        Usage: beers [options] [command]
-
-
-        Commands:
-
-          list [options]  List beers
-
-        Options:
-
-          -h, --help     output usage information
-          -V, --version  output the version number
-          -c, --color    Colored display
+    Usage: beers [options] [command]
 
 
-- Modifier `beers.js` pour que la commande `$ node beers.js list` affiche
-la liste des bières.
-- Ajouter une option *colors* pour afficher ou nom la liste en couleur
-: `$ node beers.js list -c`
+    Commands:
+
+      list [options]  List beers
+
+    Options:
+
+      -h, --help     output usage information
+      -V, --version  output the version number
+      -c, --color    Colored display
+```
+
+- Modifier `beers.js` pour que la commande `$ node beers.js list` affiche la liste des bières.
+- Ajouter une option *colors* pour afficher ou nom la liste en couleur : `$ node beers.js list -c`
 
 Ajouter le *shebang* à `beers.js` en tête de fichier :
 
-    #!/usr/bin/env node
-    require('colors');
-    var program = require('commander');
-    var beersFile = require('./beers.json');
-    [...]
+```javascript
+#!/usr/bin/env node
+require('colors');
+var program = require('commander');
+var beersFile = require('./beers.json');
+[...]
+```
 
 et exécuter :
 
-    $ node beers list -c
+```bash
+$ node beers list -c
+```
 
 Plus besoin de préciser l'extension.
 
