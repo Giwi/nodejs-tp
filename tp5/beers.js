@@ -37,6 +37,7 @@ function Beer(id, alcohol, name, description) {
 function FileBeer() {
     this.path = './beers.json';
 
+    this.beers = [];
     /**
      *
      * @param callback
@@ -44,11 +45,10 @@ function FileBeer() {
     this.read = function (callback) {
         fs.readFile(this.path, 'utf8', function (err, data) {
             if (!err) {
-                var beers = [];
                 JSON.parse(data).forEach(function (item) {
                     this.push(new Beer(item.id, item.alcohol, item.name, item.description))
-                }, beers);
-                callback(beers);
+                }, this.beers);
+                callback(this.beers);
             } else {
                 console.error(err);
             }
@@ -60,7 +60,11 @@ function FileBeer() {
      * @param callback
      */
     this.get = function (callback) {
-        this.read(callback);
+        if(this.beers.length === 0) {
+            this.read(callback);
+        } else {
+            callback(this.beers);
+        }
     };
 
     /**
@@ -69,7 +73,7 @@ function FileBeer() {
      * @param callback
      */
     this.write = function (beers, callback) {
-        fs.writeFile(this.path, JSON.stringify(beers), 'utf-8', function (err, data) {
+        fs.writeFile(this.path, JSON.stringify(beers), 'utf-8', function (err) {
             if (!err) {
                 callback(beers);
             } else {
@@ -105,7 +109,7 @@ function Beers() {
      * @param callback
      */
     this.add = function (id, alcohol, name, description, callback) {
-        this.read(function (beers) {
+        this.get(function (beers) {
             beers.push(new Beer(id, alcohol, name, description, callback));
             this.write(beers, callback);
         }.bind(this));
