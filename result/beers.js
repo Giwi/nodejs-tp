@@ -26,7 +26,7 @@ function Beers() {
      * @param callback
      */
     this.add = function (id, alcohol, name, description, callback) {
-        this.read(function (beers) {
+        this.get(function (beers) {
             beers.push(new Beer(id, alcohol, name, description, callback));
             this.write(beers, callback);
         }.bind(this));
@@ -38,14 +38,14 @@ function Beers() {
      * @param callback
      */
     this.del = function (id, callback) {
-        this.read(function (beers) {
+        this.get(function (beers) {
             var newBeers = [];
-            for(var i=0; i < beers.length; i++) {
-                if(beers[i].id !== id) {
-                    newBeers.push(beers[i]);
+            beers.forEach(function(b) {
+                if (b.id !== id) {
+                    this.push(b);
                 }
-            }
-            if(newBeers.length === beers.length) {
+            }, newBeers);
+            if (newBeers.length === beers.length) {
                 console.error(id, 'not found'.red);
             } else {
                 this.write(newBeers, callback);

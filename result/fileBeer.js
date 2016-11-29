@@ -6,6 +6,7 @@ var Beer = require('./beer');
  */
 function FileBeer() {
     this.path = './beers.json';
+    this.beers = [];
 
     /**
      *
@@ -14,11 +15,10 @@ function FileBeer() {
     this.read = function (callback) {
         fs.readFile(this.path, 'utf8', function (err, data) {
             if (!err) {
-                var beers = [];
                 JSON.parse(data).forEach(function (item) {
                     this.push(new Beer(item.id, item.alcohol, item.name, item.description))
-                }, beers);
-                callback(beers);
+                }, this.beers);
+                callback(this.beers);
             } else {
                 console.error(err);
             }
@@ -30,7 +30,11 @@ function FileBeer() {
      * @param callback
      */
     this.get = function (callback) {
-        this.read(callback);
+        if(this.beers.length === 0) {
+            this.read(callback);
+        } else {
+            callback(this.beers);
+        }
     };
 
     /**
