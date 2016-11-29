@@ -75,6 +75,7 @@ function FileBeer() {
     this.write = function (beers, callback) {
         fs.writeFile(this.path, JSON.stringify(beers), 'utf-8', function (err) {
             if (!err) {
+                this.beers = beers;
                 callback(beers);
             } else {
                 console.error(err);
@@ -121,13 +122,13 @@ function Beers() {
      * @param callback
      */
     this.del = function (id, callback) {
-        this.read(function (beers) {
+        this.get(function (beers) {
             var newBeers = [];
-            for (var i = 0; i < beers.length; i++) {
-                if (beers[i].id !== id) {
-                    newBeers.push(beers[i]);
+            beers.forEach(function(b) {
+                if (b.id !== id) {
+                    this.push(b);
                 }
-            }
+            }, newBeers);
             if (newBeers.length === beers.length) {
                 console.error(id, 'not found'.red);
             } else {
