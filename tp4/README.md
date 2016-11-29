@@ -17,7 +17,7 @@ Revenons sur le chargement du fichier `beers.json` :
 - toujours dans ce constructeur, définir une méthode `this.read = function(callback) {...};` qui utilise `fs.readFile(<path>, <encoding>, <callback>);` pour lire notre fichier json.
 - implémenter la méthode get pour offir la même API que *MemoryBeer*
 
-```javascript
+```js
 fs.readFile(this.path, 'utf8', function (err, data) {
         if (!err) {
             var beers = [];
