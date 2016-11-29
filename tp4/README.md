@@ -19,8 +19,6 @@ qui utilise `fs.readFile(<path>, <encoding>, <callback>);` pour lire notre fichi
 - implémenter la méthode get pour offir la même API que *MemoryBeer*
 
 
-
-
     fs.readFile(this.path, 'utf8', function (err, data) {
         if (!err) {
             var beers = [];
@@ -34,7 +32,6 @@ qui utilise `fs.readFile(<path>, <encoding>, <callback>);` pour lire notre fichi
             console.error(err); // affichage d'une erreur au passage
         }
     });
-
 
 Pour `fs.readFile(<path>, <encoding>, <callback(err, data)>)`, par convention,
 tous les appels assynchrones de nodeJS (faites de même dans vos devs) on
