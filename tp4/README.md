@@ -14,12 +14,11 @@ Revenons sur le chargement du fichier `beers.json` :
 - supprimer la ligne : `var beersFile = require('./beers.json');`
 - charger le module *fs* : `var fs = require('fs');`
 - créer le constructeur *FileBeer* avec un attribut `this.path = './beers.json';`
-- toujours dans ce constructeur, définir une méthode `this.read = function(callback) {...};`
-qui utilise `fs.readFile(<path>, <encoding>, <callback>);` pour lire notre fichier json.
+- toujours dans ce constructeur, définir une méthode `this.read = function(callback) {...};` qui utilise `fs.readFile(<path>, <encoding>, <callback>);` pour lire notre fichier json.
 - implémenter la méthode get pour offir la même API que *MemoryBeer*
 
 
-    fs.readFile(this.path, 'utf8', function (err, data) {
+        fs.readFile(this.path, 'utf8', function (err, data) {
         if (!err) {
             var beers = [];
             // JSON.parse est natif en JavaScript
