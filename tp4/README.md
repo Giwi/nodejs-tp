@@ -20,6 +20,7 @@ qui utilise `fs.readFile(<path>, <encoding>, <callback>);` pour lire notre fichi
 
 
 
+
     fs.readFile(this.path, 'utf8', function (err, data) {
         if (!err) {
             var beers = [];
