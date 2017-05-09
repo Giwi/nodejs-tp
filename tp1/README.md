@@ -42,7 +42,7 @@ console.log('i1 == i2 -> ', i1 == i2);
 console.log('i1 === i2 -> ', i1 === i2);
 ```
 
-### Tableaux
+### Tableaux
 
 ```javascript
 var t1 = [];
