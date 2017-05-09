@@ -30,7 +30,7 @@ var i1 = 42;
 var i2 = '42';
 ```
 
-### Ccoercition
+### Coercition
 
 Tester la coercition :
 
@@ -136,8 +136,7 @@ for (var i = 0; i < t5.length; i++) {
 
 - iterer avec une double boucle *for* le tableau t4.
 - extraire une sous partie de t2 avec `splice()` (méthode de la classe Array).
-- comparer les comportements des méthodes de la classe Array `unshift()` et `push()`
-sur t3.
+- comparer les comportements des méthodes de la classe Array `unshift()` et `push()` sur t3.
 - tester la méthode `concat()` de la classe Array avec t2 et t3.
 - tester les méthodes `join()` et `indexOf()` de la classe Array avec t3.
 
@@ -170,7 +169,7 @@ et une chaîne de caractères et qui appelle la méthode `toUppercase()` de
 la classe String sur le second argument et passe le résultat comme argument
 du premier. Invoquez la avec la fonction `hello`.
 
-## Ensuite
+## Ensuite
 
 Bon, on a fait le tour des variables, tableaux, fonctions et de la coercition.
 Passons aux choses (à peu près) sérieuses dans le [TP 2](../tp2/)
