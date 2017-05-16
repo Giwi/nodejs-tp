@@ -83,6 +83,6 @@ $ node beers add -a 4.5 -n Kronembourg -d "La bière dégueu à pas cher" -i kro
 
 Implémenter la commande *delete* qui prend en paramètre un id.
 
-## La suite
+## La suite
 
 La suite se passe dans le [TP 5](../tp5).
