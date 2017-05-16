@@ -57,7 +57,7 @@ Associer au prototype de l'objet `Beers` un instance de `MemoryBeers`.
 Ajouter la méthode `toString()` dans le prototype de la classe `Beer` retournant
 le nom en majuscules, le degré d'alcool et la description.
 
-## Lecture des bières
+## Lecture des bières
 
 Nous allons utiliser la fonction `require` de NodeJS qui est indépendante
 du langage JavaScript pour charger une liste de bières présente dans le fichier
@@ -86,7 +86,7 @@ Exécuter le script :
 $ node beers.js
 ```
 
-## Pour aller plus loin
+## Pour aller plus loin
 
 Itérer avec `forEach` sur la liste des bières pour instancier chaque objet
  `Beer`
@@ -101,6 +101,6 @@ beersFile.forEach(function(item) {
 Notez le contexte `this` dans la fonction passée en paramètre du forEach faisant
 référence à `this.beers` passé en paramètre.
 
-## Ensuite
+## Ensuite
 
 Allons un peu plus loin avec NodeJS dans le [TP 3](../tp3/)
