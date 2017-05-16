@@ -42,7 +42,7 @@ Cette librairie étendant la classe *String* inutile de l'affecter à une variab
 a pratir de [sa documentation](https://github.com/Marak/colors.js) afficher
 le nom de la bière en bleu et le degré d'alcool en rouge.
 
-## Commander.js
+## Commander.js
 
 La librairie [commander.js](https://www.npmjs.com/package/commander) permet
 de manipuler le script par des paramètres passés à la ligne de commande.
@@ -90,6 +90,6 @@ $ node beers list -c
 
 Plus besoin de préciser l'extension.
 
-## La suite
+## La suite
 
 La suite se passe dans le [TP 4](../tp4).
